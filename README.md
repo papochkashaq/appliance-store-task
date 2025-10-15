@@ -79,6 +79,7 @@ Returns a list of orders by employee. The orders can contain the orders when emp
 
 > Note: In the future, it is expected that objects of these classes will be transferred over a network or stored in a file or database.  
 
+* The `Order` class contains a `Map<Appliance, BigDecimal>` in which the key (an `Appliance` object) is associated with its **price** (a `BigDecimal` object).
 * The string representation of an object of these classes must follow the following convention:
 ```java
 Class_name{field1_name=field_value, field2_name=field_value,...}
