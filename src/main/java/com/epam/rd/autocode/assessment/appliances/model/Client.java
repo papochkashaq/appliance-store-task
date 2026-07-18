@@ -38,6 +38,10 @@ public class Client extends User {
     @Override
     public String toString() {
         return "Client{" +
+                "id=" + getId() + ", " +
+                "name='" + getName() + "', " +
+                "email='" + getEmail() + "', " +
+                "password='" + getPassword() + "', " +
                 "card='" + card + '\'' +
                 '}';
     }

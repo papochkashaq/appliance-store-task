@@ -38,6 +38,10 @@ public class Employee extends User {
     @Override
     public String toString() {
         return "Employee{" +
+                "id=" + getId() + ", " +
+                "name='" + getName() + "', " +
+                "email='" + getEmail() + "', " +
+                "password='" + getPassword() + "', " +
                 "department='" + department + '\'' +
                 '}';
     }

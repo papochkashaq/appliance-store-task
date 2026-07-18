@@ -3,6 +3,7 @@ package com.epam.rd.autocode.assessment.appliances.model;
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Order {
 
@@ -19,13 +20,6 @@ public class Order {
     }
 
     public Order() {
-    }
-
-    public BigDecimal calculateOrderSum() {
-        if (appliances == null || appliances.isEmpty()) {
-            return BigDecimal.ZERO;
-        }
-        return appliances.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public long getId() {
@@ -74,11 +68,17 @@ public class Order {
 
     @Override
     public String toString() {
+        String appliancesString = appliances == null || appliances.isEmpty() ? "[]" :
+                appliances.entrySet().stream()
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
+                .collect(Collectors.joining(", ", "[", "]"));
+
         return "Order{" +
                 "id=" + id +
                 ", client=" + client +
                 ", employee=" + employee +
-                ", appliances=" + appliances +
+                ", appliances=" + appliancesString +
                 '}';
     }
+
 }
